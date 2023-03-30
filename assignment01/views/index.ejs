@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculate Age</title>
+</head>
+<style>
+  *{
+    box-sizing: border-box;
+  }
+
+  .container{
+    background-color: #f0f8ff;
+    min-height: 100px;
+    width: 520px;
+    border-radius: 5px;
+    margin: 100px auto;
+  }
+
+  h1{
+    font-size: 26px;
+    text-align: center;
+    color: rgb(0, 128, 34);
+    background-color: white;
+    padding: 5px;
+  }
+
+  .block{
+    width: 135px;
+    padding: 5px 20px;
+    margin-left: 20px;
+    display: inline-block;
+  }
+
+  .title{
+    font-size: 20px;
+    text-align: left;
+    color: #107310;
+  }
+
+  input[type=text]{
+    width: 140px;
+    margin: auto;
+    outline: none;
+    border: 2px solid #107310;
+    border-radius: 2px;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  input[type=text]:focus{
+    background-color: #ffffff;
+    border: 2px solid #50de50;
+  }
+
+  .btn{
+    width: 150px;
+    margin: 40px;
+    outline: none;
+    border: none;
+    background-color: #107310;
+    border-radius: 2px;
+    padding: 14px 16px;
+    color: white;
+    font-size: 16px;
+  }
+
+  .age{
+    display: block;
+    margin: 10px;
+    font-size: 23px;
+    padding: 10px;
+    color: #107310;
+  }
+</style>
+<body>
+  <div class="container">
+    <form action="/getAge" method="POST">
+        <h1>Age Calculator</h1>
+      <div class="block">
+        <p class="title">Date</p>
+        <input type="text" name="date" id="date" placeholder="dd" minlength="1" maxlength="2" required>
+      </div>
+      <div class="block">
+        <p class="title">Month</p>
+        <input type="text" name="month" id="month" placeholder="mm" minlength="1" maxlength="2" required>
+      </div>
+      <div class="block">
+        <p class="title">Year</p>
+        <input type="text" name="year" id="year" placeholder="yyyy" minlength="4" maxlength="4" required>
+      </div>
+      <div>
+        <input type="submit" value="SUBMIT"  class="btn">
+      </div>
+      <% if (typeof data !== 'undefined') { %>
+        <h2 class="age"><%= data.ageString %></h2>
+      <% } %>
+    </form>
+  </div>
+</body>
+</html>
