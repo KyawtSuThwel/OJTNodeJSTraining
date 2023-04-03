@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUDwithFile</title>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+  
+    .container{
+      background-color: #f4efef;
+      width: 520px;
+      border-radius: 5px;
+      margin: 50px auto;
+    }
+  
+    h1{
+      font-size: 26px;
+      text-align: center;
+      color: white;
+      background-color: #2e46b0;
+      padding: 5px;
+    }
+  
+    form{
+      margin: 20px;
+    }
+  
+    input{
+      width: 100%;
+      margin: 10px auto;
+      outline: none;
+      border: 2px solid #2e46b0;
+      border-radius: 6px;
+      font-size: 16px;
+      padding: 12px;
+    }
+
+    .alert-message{
+      color: #ff0000;
+      margin: 10px;
+    }
+  
+    .register-btn{
+      width: 100%;
+      outline: none;
+      border: none;
+      margin: 20px 0px;
+      background-color: #2e46b0;
+      border-radius: 2px;
+      padding: 14px 16px;
+      color: white;
+      font-size: 16px;
+    }
+  
+    table{
+      padding: 20px;
+      border :1px solid #2e46b0;
+      width: 520px;
+      background-color: #f4efef;
+      margin: 0 auto;
+    }
+    table td{
+      text-align: center;
+    }
+  
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h1>User Registeration Form</h1>
+  <% if(typeof alert !== 'undefined') { %>
+    <% alert.forEach (function(error) { %>
+      <div class="alert-message">
+        <%= error.msg %>
+      </div>
+    <% }) %>
+    <% } %>
+    <form action="/register" method="POST">
+      <label for="userName">Name</label>
+      <input type="text" name="userName" id="userName" placeholder="Enter your name">
+      <label for="userEmail">Email</label>
+      <input type="text" name="userEmail" id="userEmail" placeholder="Enter your email">
+      <label for="password">Password</label>
+      <input type="password" name="userPassword" placeholder="Enter Your Password">
+      <button class="register-btn">REGISTER </button>
+    </form>
+    </div>
+  
+  <% if(typeof resultData !== 'undefined') { %>
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= resultData.userName %></td>
+          <td><%= resultData.userEmail %></td>
+          <td><%= resultData.userPassword %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% } %>
+  
+
+</body>
+</html>
