@@ -1,11 +1,6 @@
 import { Schema, model} from "mongoose";
 
 const movieSchema = new Schema({
-  id: {
-    type: Number,
-    required: true,
-    default: 101
-  },
   
   name: {
     type: String,
