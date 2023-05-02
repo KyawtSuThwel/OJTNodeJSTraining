@@ -12,9 +12,8 @@ import UserModel from './models/userModel.js';
 mongoose.connect(process.env.DATABASE || "", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-}).then(()=>{
-  console.log("Database connected");
-});
+}).then(() => console.log("Database connected"));
+
 mongoose.set("useCreateIndex", true);
 mongoose.connection.on('error', error => console.log(error) );
 mongoose.Promise = global.Promise;
